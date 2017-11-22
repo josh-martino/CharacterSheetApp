@@ -11,14 +11,16 @@ namespace CharacterSheetApp.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            //return our GetAll method so that it will pass the entire list to be displayed.
+            return View(Models.Character.GetAll());
         }
 
         public ActionResult Create(string characterName)
         {
-            var model = new CharacterSheetApp.Models.Home();
-            model.Name = characterName;
-            return View("Index", model);
+            Models.Character.Create(characterName);
+            //instead of returning the view we'll redirect to the action in our home controller.
+            //This keeps the user from creating a character twice by refreshing, avoiding duplicate code
+            return RedirectToAction("Index");
         }
     }
 }
