@@ -11,6 +11,7 @@ namespace CharacterSheetApp.Controllers
     {
         public ActionResult Index()
         {
+            var name = "Shield";
             //return our GetAll method so that it will pass the entire list to be displayed.
             return View(Character.GetAll());
         }

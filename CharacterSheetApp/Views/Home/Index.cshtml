@@ -3,12 +3,15 @@
 <h2>Characters:</h2>
 
 
-<form asp-action="Create" asp-controller="Home">
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+
+
     <div>
         <input name="CharacterName"/>
         <input type="submit" value="Add Character"/>
     </div>
-</form>
+}
 
 <h4>Character:</h4>
 
